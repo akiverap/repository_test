@@ -1,0 +1,31 @@
+[project]
+name = "l-17-unit-tests"
+version = "0.1.0"
+description = "Лавка героя: unit-тесты"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.121.0",
+    "pydantic-settings>=2.12.0",
+    "uvicorn>=0.38.0",
+]
+
+[dependency-groups]
+test = [
+    "mypy>=1.18.2",
+    "pytest>=8.4.2",
+    "pytest-ordering>=0.6",
+    "ruff>=0.14.4",
+]
+
+[tool.ruff]
+line-length = 120
+exclude = [".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "N", "B", "C4", "UP"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["pydantic.mypy"]
